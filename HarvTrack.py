@@ -52,5 +52,40 @@ def view_activity():
                in acts.fetchall()]
     return render_template('viewactivity.html', entries=entries)
 
+
+@app.route("/admin")
+def admin_page():
+    return  render_template('admin.html')
+
+@app.route("/add_activity", methods=['POST'])
+# add to the activity table
+def add_activity():
+    db = get_db()
+    activityType = request.form.get('activityType',None)
+    if activityType == "":
+        flash("Please input an activity.")
+    else:
+        db.execute("insert into activityType (activityType) values(?)", [activityType])
+        db.commit()
+        flash("Activity added")
+
+    return redirect(url_for('admin_page'))
+
+
+@app.route("/add_user", methods=['POST'])
+# add new user
+def add_user():
+    db = get_db()
+    username = request.form.get('username', None)
+    if username == "":
+        flash("Please input a username.")
+    else:
+        db.execute("insert into users (username) values(?)", [username])
+        db.commit()
+        flash("User added")
+
+    return redirect(url_for('admin_page'))
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
