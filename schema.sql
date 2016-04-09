@@ -22,3 +22,5 @@ entryDatetime numeric
 ,FOREIGN KEY(activityType) REFERENCES activityType(id)
 );
 
+drop view if exists activity_view;
+create view activity_view as select b.username as Observer, c.activityType as Activity, a.ActivityDescription as Notes, strftime('%m/%d/%Y',datetime(a.entryDatetime, 'unixepoch', 'localtime')) as Date, strftime('%H:%M',datetime(a.entryDatetime, 'unixepoch', 'localtime')) as Time, a.ActivityLengthSec as LengthInSec from activity as a join users as b on b.id = a.inputUser join activityType c on a.activityType = c.id;

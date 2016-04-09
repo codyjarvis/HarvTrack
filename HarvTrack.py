@@ -24,26 +24,33 @@ def connect_db():
 
 # open db connection
 def get_db():
-    db = getattr(g,'_database', None)
+    db = getattr(g, '_database', None)
     if db is None:
         db = g._database = connect_db()
         return db
-
 
 
 # close db connection
 @app.teardown_request
 def teardown_request(exception):
     db = getattr(g, 'db', None)
-    if db is not  None:
+    if db is not None:
         db.close()
 
 
-@app.route("/")
+@app.route("/j")
 def hello():
     x = 'hello world'
     return (x)
 
+
+@app.route("/")
+def view_activity():
+    db = get_db()
+    acts = db.execute("select * from activity_view")
+    entries = [dict(observer=row[0], activity=row[1], notes=row[2], date=row[3], time=row[4], length=row[5]) for row
+               in acts.fetchall()]
+    return render_template('viewactivity.html', entries=entries)
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
-
