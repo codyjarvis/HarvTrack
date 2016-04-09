@@ -30,6 +30,7 @@ def get_db():
         return db
 
 
+
 # close db connection
 @app.teardown_request
 def teardown_request(exception):
