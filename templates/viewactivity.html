@@ -1,8 +1,30 @@
 {% extends "layout.html" %}
 {% block body %}
+
+<form action="{{ url_for('log_activity') }}" method=post class=log_activity>
+<select name="observer">
+<option value="">Choose Observer</option>
+    {% for observer in observers %}
+        <option value="{{ observer.observerid }}"> {{ observer.observername }}</option>
+    {% endfor %}
+</select>
+
+<select name="activity">
+<option value="">Choose Activity</option>
+    {% for activity in activities %}
+        <option value="{{ activity.activityid }}"> {{ activity.activityname }}</option>
+    {% endfor %}
+</select>
+
+  <input type=text size=3 name=length>
+
+    <input type=text size=50 name=notes>
+<input type=submit value=Submit>
+</form>
+
 <ul class=entries>
   {% for entry in entries %}
-    <li><h2>{{ entry.title }}</h2>{{ entry.observer|safe }} {{ entry.activity|safe}} {{ entry.notes|safe }}
+    <li>{{ entry.observer|safe }} {{ entry.activity|safe }} {{ entry.notes|safe }}
         {{ entry.date|safe }} {{ entry.time|safe }} {{ entry.length|safe }}</li>
   {% else %}
     <li><em>Unbelievable.  No entries here so far</em>

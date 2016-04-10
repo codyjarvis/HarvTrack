@@ -27,7 +27,7 @@ def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = connect_db()
-        return db
+    return db
 
 
 # close db connection
@@ -38,30 +38,69 @@ def teardown_request(exception):
         db.close()
 
 
-@app.route("/j")
-def hello():
-    x = 'hello world'
-    return (x)
-
-
 @app.route("/")
 def view_activity():
+
+    entries = get_entries()
+    observers = get_observers()
+    activities = get_activities()
+
+    return render_template('viewactivity.html', entries=entries, observers=observers, activities=activities)
+
+
+def get_observers():
     db = get_db()
-    acts = db.execute("select * from activity_view")
+    users = db.execute("select id, username from users")
+    users_dict = [dict(observerid=row[0], observername=row[1]) for row in users.fetchall()]
+    return users_dict
+
+
+def get_entries():
+    db = get_db()
+    logged_entries = db.execute("select * from activity_view order by date desc, time")
     entries = [dict(observer=row[0], activity=row[1], notes=row[2], date=row[3], time=row[4], length=row[5]) for row
-               in acts.fetchall()]
-    return render_template('viewactivity.html', entries=entries)
+               in logged_entries.fetchall()]
+    return entries
+
+
+def get_activities():
+    db = get_db()
+    acts = db.execute("select id, activitytype from activitytype")
+    acts_dict = [dict(activityid=row[0], activityname=row[1]) for row in acts.fetchall()]
+    return acts_dict
+
+
+@app.route("/log_activity", methods=['POST'])
+def log_activity():
+    db = get_db()
+    notes = request.form.get('notes', None)
+    length = request.form.get('length', None)
+    observer = request.form.get('observer', None)
+    activity = request.form.get('activity', None)
+
+    if observer == "":
+        pass
+    elif activity == "":
+        pass
+    else:
+        db.execute("insert into activity (entryDatetime, inputUser, activityType, ActivityDescription, activityLengthSec)"
+                " values(strftime('%s', 'now'),?,?,?,?)", [observer, activity, notes, length])
+        db.commit()
+        flash("Entry Successful")
+
+    return redirect(url_for('view_activity'))
 
 
 @app.route("/admin")
 def admin_page():
-    return  render_template('admin.html')
+    return render_template('admin.html')
+
 
 @app.route("/add_activity", methods=['POST'])
 # add to the activity table
 def add_activity():
     db = get_db()
-    activityType = request.form.get('activityType',None)
+    activityType = request.form.get('activityType', None)
     if activityType == "":
         flash("Please input an activity.")
     else:
