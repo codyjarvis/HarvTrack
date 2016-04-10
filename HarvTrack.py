@@ -41,7 +41,7 @@ def teardown_request(exception):
 @app.route("/")
 def view_activity():
 
-    entries = get_entries()
+    entries = get_entries_view()
     observers = get_observers()
     activities = get_activities()
 
@@ -55,7 +55,7 @@ def get_observers():
     return users_dict
 
 
-def get_entries():
+def get_entries_view():
     db = get_db()
     logged_entries = db.execute("select * from activity_view order by date desc, time")
     entries = [dict(observer=row[0], activity=row[1], notes=row[2], date=row[3], time=row[4], length=row[5]) for row
@@ -93,8 +93,15 @@ def log_activity():
 
 @app.route("/admin")
 def admin_page():
-    return render_template('admin.html')
+    del_entries = get_entries_del()
+    return render_template('admin.html', del_entries=del_entries)
 
+def get_entries_del():
+    db = get_db()
+    logged_entries = db.execute("select id, activitydescription from activity order by entrydatetime desc Limit 5")
+    entries = [dict(id=row[0], activitydescription=row[1]) for row
+               in logged_entries.fetchall()]
+    return entries
 
 @app.route("/add_activity", methods=['POST'])
 # add to the activity table
@@ -122,6 +129,20 @@ def add_user():
         db.execute("insert into users (username) values(?)", [username])
         db.commit()
         flash("User added")
+
+    return redirect(url_for('admin_page'))
+
+@app.route("/remove_logged_activity", methods=['POST'])
+# remove entry
+def delete_acts():
+    db = get_db()
+    activityid = request.form.get('activityid', None)
+    if activityid == "":
+        flash("Please input a username.")
+    else:
+        db.execute("delete from activity where id = ?", [activityid])
+        db.commit()
+        flash("Entry Removed")
 
     return redirect(url_for('admin_page'))
 
