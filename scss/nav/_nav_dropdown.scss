@@ -1,0 +1,235 @@
+// =============================================================================
+//	Dropdown Navigation
+//==============================================================================
+
+//settings
+$display-flyout-icon: true;  //Options/ true, false
+$dynamic-width:       false;  //Options/ true, false
+
+
+
+//general
+$dropdown-general-alignment:  null; //Options/ flex-start, center, flex-end
+$dropdown-general-background: null;
+
+//level 1  --main
+$dropdown-1-alignment:      null; //Options/ left, right or center
+$dropdown-1-width:          null;
+$dropdown-1-font-size:      null;
+$dropdown-1-font-weight:    null;
+$dropdown-1-line-height:    null;
+$dropdown-1-text-transform: null;
+$dropdown-1-link-padding:   8px 16px;
+$dropdown-1-border-bottom:  null;
+
+//level 2  --dropdown
+$dropdown-2-alignment:      null; //Options/ left, right or center
+$dropdown-2-width:          240px;
+$dropdown-2-font-size:      null;
+$dropdown-2-font-weight:    null;
+$dropdown-2-line-height:    null;
+$dropdown-2-text-transform: null;
+$dropdown-2-link-padding:   null;
+$dropdown-2-border-bottom:  null;
+
+//level 3  --flyout
+$dropdown-3-alignment:      null; //Options/ left, right or center
+$dropdown-3-width:          null;
+$dropdown-3-font-size:      null;
+$dropdown-3-font-weight:    null;
+$dropdown-3-line-height:    null;
+$dropdown-3-text-transform: null;
+$dropdown-3-link-padding:   null;
+$dropdown-3-border-bottom:  null;
+
+//colors
+//level 1
+$color-dropdown-1-background:       #999 !default;
+$color-dropdown-1-background-hover: #888 !default;
+$color-dropdown-1-text:             #fff !default;
+$color-dropdown-1-text-hover:       #fff !default;
+
+//level 2
+$color-dropdown-2-background:       #777 !default;
+$color-dropdown-2-background-hover: #666 !default;
+$color-dropdown-2-text:             #fff !default;
+$color-dropdown-2-text-hover:       #fff !default;
+
+//level 3
+$color-dropdown-3-background:       #555 !default;
+$color-dropdown-3-background-hover: #444 !default;
+$color-dropdown-3-text:             #fff !default;
+$color-dropdown-3-text-hover:       #fff !default;
+
+//flyout icon
+$icon-font-size:   20px;
+$icon-content:     "\f105";
+$icon-padding:     0 10px;
+
+
+
+
+//styles
+nav.dropdown {
+	//general
+	////////////////////////////////////////////////////////
+	ul {
+		width: 100%;
+		display: flex;
+		justify-content: $dropdown-general-alignment;
+		background: $dropdown-general-background;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		position: relative;
+	}
+	a {
+		display: block;
+	}
+
+	//flyout icon
+	@if $display-flyout-icon == true {
+
+		//level 2
+		ul ul {
+			.nav__list--parent{
+				&:hover {
+					&:after {
+						color: $color-dropdown-2-text-hover;
+					}
+				}
+				a {
+					padding-right: $icon-font-size * 1.5;
+				}
+				&:after {
+					content: $icon-content;
+					font-family: FontAwesome;
+					font-style: normal;
+					font-weight: normal;
+					text-decoration: inherit;
+					position: absolute;
+					top: 50%;
+					right: 0;
+					transform: translateY(-50%);
+					color: $color-dropdown-2-text;
+					font-size: $icon-font-size;
+					padding: $icon-padding;
+					z-index: 1;
+				}
+			}
+		}
+		
+		//level 3
+		ul ul ul {
+			.nav__list--parent {
+				&:after {
+					color: $color-dropdown-3-text;
+				}
+				&:hover:after {
+					color: $color-dropdown-3-text-hover;
+				}
+			}
+		}
+
+	}
+
+	//level 1  --main level
+	////////////////////////////////////////////////////////
+	> ul {
+		> li > a {
+			border-bottom:    $dropdown-1-border-bottom;
+		}
+		li {
+			&:hover > a {
+				background-color: $color-dropdown-1-background-hover;
+				color: $color-dropdown-1-text-hover;
+			}
+		}
+		a {
+			background-color: $color-dropdown-1-background;
+			color:            $color-dropdown-1-text;
+			text-align:       $dropdown-1-alignment;
+			width:            $dropdown-1-width;
+			font-size:        $dropdown-1-font-size;
+			font-weight:      $dropdown-1-font-weight;
+			line-height:      $dropdown-1-line-height;
+			text-transform:   $dropdown-1-text-transform;
+			padding:          $dropdown-1-link-padding;
+		}
+
+	}
+
+	//level 2  --dropdown
+	////////////////////////////////////////////////////////
+	ul ul {
+		display: none;
+		position: absolute;
+		width: auto;
+		background-color: $color-dropdown-2-background;
+		@if $dynamic-width == true {
+			white-space: nowrap;
+		}
+		li {
+			&:hover > a {
+				background-color: $color-dropdown-2-background-hover;
+				color: $color-dropdown-2-text-hover;
+			}
+			&:not(:last-child) a {
+				border-bottom:    $dropdown-2-border-bottom;
+			}
+		}
+		a {
+			background-color: $color-dropdown-2-background;
+			color:            $color-dropdown-2-text;
+			text-align:       $dropdown-2-alignment;
+			width:            $dropdown-2-width;
+			font-size:        $dropdown-2-font-size;
+			font-weight:      $dropdown-2-font-weight;
+			line-height:      $dropdown-2-line-height;
+			text-transform:   $dropdown-2-text-transform;
+			padding:          $dropdown-2-link-padding;
+		}
+
+	}
+
+	//level 3  --flyout and beyond!
+	////////////////////////////////////////////////////////
+	ul ul ul {
+		top: 0;
+		left: 100%;
+		background-color: $color-dropdown-3-background;
+		li {
+			&:hover > a {
+				background-color: $color-dropdown-3-background-hover;
+				color: $color-dropdown-3-text-hover;
+			}
+			&:not(:last-child) a {
+				border-bottom:    $dropdown-3-border-bottom;
+			}
+		}
+		a {
+			background-color: $color-dropdown-3-background;
+			color:            $color-dropdown-3-text;
+			text-align:       $dropdown-3-alignment;
+			width:            $dropdown-3-width;
+			font-size:        $dropdown-3-font-size;
+			font-weight:      $dropdown-3-font-weight;
+			line-height:      $dropdown-3-line-height;
+			text-transform:   $dropdown-3-text-transform;
+			padding:          $dropdown-3-link-padding;
+		}
+
+	}
+
+
+	li:hover > ul {
+		display: block;
+	}
+
+
+
+
+
+}

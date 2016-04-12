@@ -1,0 +1,29 @@
+{
+  "name": "Gulp_Template",
+  "version": "1.0.0",
+  "description": "Gulp 2.0 framework for creating custom designs and templates",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "FED",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.7.11",
+    "event-stream": "^3.3.2",
+    "fs": "0.0.2",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^2.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-file-include": "^0.9.0",
+    "gulp-include": "^1.1.1",
+    "gulp-jshint": "^1.11.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^1.0.5",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "path": "^0.12.7"
+  },
+  "dependencies": {}
+}

@@ -1,0 +1,188 @@
+// =============================================================================
+//  mobile Navigation
+//==============================================================================
+
+//settings
+
+
+//general
+$mobile-general-background:  null;
+$mobile-general-font-size:   16px;
+$mobile-general-line-height: null;
+$mobile-general-font-weight: 400;
+
+//level 1  --main
+$mobile-1-width:          null;
+$mobile-1-font-size:      14px;
+$mobile-1-line-height:    null;
+$mobile-1-text-transform: null;
+$mobile-1-link-padding:   20px;
+$mobile-1-border:         1px solid #fff;
+
+//level 2  --dropdown
+$mobile-2-font-size:      null;
+$mobile-2-line-height:    null;
+$mobile-2-text-transform: null;
+$mobile-2-link-padding:   20px 20px 20px 40px;
+$mobile-2-border:         null;
+
+//level 3  --flyout
+$mobile-3-font-size:      null;
+$mobile-3-line-height:    null;
+$mobile-3-text-transform: null;
+$mobile-3-link-padding:   20px 20px 20px 60px;
+$mobile-3-border:         null;
+
+//colors
+$color-mobile-1-background:       #333 !default;
+$color-mobile-1-background-hover: #333 !default;
+$color-mobile-1-text:             #fff!default;
+$color-mobile-1-text-hover:       #fff !default;
+
+$color-mobile-2-background:       #666 !default;
+$color-mobile-2-background-hover: #666 !default;
+$color-mobile-2-text:             #fff !default;
+$color-mobile-2-text-hover:       #fff !default;
+
+$color-mobile-3-background:       #999 !default;
+$color-mobile-3-background-hover: #999 !default;
+$color-mobile-3-text:             #fff !default;
+$color-mobile-3-text-hover:       #fff !default;
+
+//toggle icon
+$mobile-toggle-icon:       "\f0da"; //caret right
+$mobile-toggle-icon:       "\f105"; //angle right
+$mobile-toggle-font-size:  30px;
+$mobile-toggle-width:      50px;
+$mobile-toggle-right:      0;
+$mobile-toggle-color:      null;
+$mobile-toggle-background: null;
+
+
+nav.mobile {
+  width: 100%;
+  background: $mobile-general-background;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: block;
+    position: relative;
+    font-size:   $mobile-general-font-size;
+    font-weight: $mobile-general-font-weight;
+    line-height: $mobile-general-line-height;
+    
+    span.accordian_toggle {
+      width: $mobile-toggle-width;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: $mobile-toggle-right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $mobile-toggle-color;
+      background: $mobile-toggle-background;
+      &:after{
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+        text-decoration: inherit;
+        content: $mobile-toggle-icon;
+        color:  $mobile-toggle-color;
+        font-size: $mobile-toggle-font-size;
+        //transition: transform .2s ease;
+      }
+    }
+    span.accordian_toggle:hover:after {
+      transform: rotate(90deg);
+    }
+  }
+  
+  //parent ul
+  li.nav__list--parent {
+    a {
+      padding-right: $mobile-toggle-width;
+    }
+  }
+
+  //open state
+  li.accordian_open {
+    > a {
+      color: null;
+      background: null;
+    }
+    > a > span.accordian_toggle {
+      &:after {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+
+  //level 1
+  ////////////////////////////////////////////////////////
+  ul {
+    li {
+      &:not(:last-child) a{border-bottom: $mobile-1-border;}
+      a {
+        font-size:      $mobile-1-font-size;
+        line-height:    $mobile-1-line-height;
+        text-transform: $mobile-1-text-transform;
+        padding:        $mobile-1-link-padding;
+        background:     $color-mobile-1-background;
+        color:          $color-mobile-1-text;
+      }
+      &:hover > a {
+        background:     $color-mobile-1-background-hover;
+        color:          $color-mobile-1-text-hover;
+      }
+    }
+  }
+
+  //level 2
+  ////////////////////////////////////////////////////////
+  ul ul {
+    display: none;
+    li {
+      &:not(:last-child) a{border-bottom: $mobile-2-border;}
+      a {
+        font-size:      $mobile-2-font-size;
+        line-height:    $mobile-2-line-height;
+        text-transform: $mobile-2-text-transform;
+        padding:        $mobile-2-link-padding;
+        background:     $color-mobile-2-background;
+        color:          $color-mobile-2-text;
+      }
+      &:hover > a {
+        background:     $color-mobile-2-background-hover;
+        color:          $color-mobile-2-text-hover;
+      }
+    }
+  }
+
+  //level 3
+  ////////////////////////////////////////////////////////
+  ul ul ul {
+    display: none;
+    li {
+      &:not(:last-child) a{border-bottom: $mobile-3-border;}
+      a {
+        font-size:      $mobile-3-font-size;
+        line-height:    $mobile-3-line-height;
+        text-transform: $mobile-3-text-transform;
+        padding:        $mobile-3-link-padding;
+        background:     $color-mobile-3-background;
+        color:          $color-mobile-3-text;
+      }
+      &:hover > a {
+        background:     $color-mobile-3-background-hover;
+        color:          $color-mobile-3-text-hover;
+      }
+    }
+  }
+
+}//

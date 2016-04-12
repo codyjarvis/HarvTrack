@@ -1,0 +1,101 @@
+// SETTINGS //
+// Fonts - Include Google Fonts Here
+
+// Settings
+$wrap-width: 1140px;
+$wrap-padding: 0 20px;
+$global-radius: 5px;
+$container-padding-top: 60px;
+$container-padding-bottom: 60px;
+
+// Text Defaults
+$font-size:          16px;
+$font-family-1:      sans-serif;
+$font-family-2:      serif;
+$font-weight-normal: normal;
+$font-weight-bold:   bold;
+
+$paragraph-line-height:   1.4;
+$paragraph-bottom-margin: 18px;
+
+// Header
+$h1-font-size:         44px;
+$h1-font-size-small:   44px;
+
+$h2-font-size:         37px;
+$h2-font-size-small:   37px;
+
+$h3-font-size:         27px;
+$h3-font-size-small:   27px;
+
+$h4-font-size:         23px;
+$h4-font-size-small:   23px;
+
+$h5-font-size:         18px;
+$h5-font-size-small:   18px;
+
+$h6-font-size:         16px;
+$h6-font-size-small:   16px;
+
+$header-line-height:  	1.6;
+$header-margin-top:   	$font-size * 0.2;
+$header-margin-bottom:	$font-size * 0.5;
+
+// COLORS //
+// Main Colors
+$color-1: null !default;
+$color-2: null !default;
+$color-3: null !default;
+$color-4: null !default;
+$color-5: null !default;
+
+// Background Colors
+$html-background:    null !default;
+$color-background-1: #fff !default;
+$color-background-2: #555 !default;
+$color-background-3: #999 !default;
+
+// Border Colors
+$color-border-1: #999 !default;
+$color-border-2: #555 !default;
+$color-border-3: #222 !default;
+
+// Link Colors
+$color-link-1:  #0000ee !default;
+$color-hover-1: #551a8b !default;
+
+$color-link-2:  #0000ee !default;
+$color-hover-2: #551a8b !default;
+
+$color-link-3:  #0000ee !default;
+$color-hover-3: #551a8b !default;
+
+// Header Colors
+$color-header-1: #999 !default;
+$color-header-2: #555 !default;
+$color-header-3: #222 !default;
+
+// Text Colors
+$color-text-1: #999 !default;
+$color-text-2: #555 !default;
+$color-text-3: #222 !default;
+$color-text-4: #fff !default;
+
+// Accent Colors
+$color-accent-1: null;
+$color-accent-2: null;
+$color-accent-3: null;
+$color-accent-4: null;
+$color-accent-5: null;
+
+// Status Colors
+$color-status-success: #2AA15F !default;
+$color-status-warning: #FA742E !default;
+$color-status-danger:  #F32F26 !default;
+
+// Social Media Colors
+$color-social-media-facebook:  #45619d !default;
+$color-social-media-linkedin:  #0e7cb7 !default;
+$color-social-media-pinterest: #cd2129 !default;
+$color-social-media-twitter:   #55acee !default;
+$color-social-media-youtube:   #db2625 !default;

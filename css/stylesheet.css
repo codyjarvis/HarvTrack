@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/* =============================================================================
+	Structure
+============================================================================= */
+body { background: #fff; margin: 0; padding: 0; text-rendering: optimizeLegibility; }
+
+.container { padding-top: 60px; padding-bottom: 60px; }
+.container + * { margin-top: 0; }
+
+.wrap { margin: 0 auto; max-width: 1140px; }
+
+@media only screen and (min-width: 801px) { .row { max-width: 1000px; } }
+@media only screen and (min-width: 1025px) { .row { max-width: 1200px; } }
+@media only screen and (min-width: 1441px) { .row { max-width: 1400px; } }
+
+/* =============================================================================
+	Typography                                                                 
+============================================================================= */
+/* Typography resets */
+em, i { font-style: italic; line-height: inherit; }
+
+strong, b { font-weight: bold; line-height: inherit; }
+
+small { font-size: 60%; line-height: inherit; }
+
+body { font-family: sans-serif; font-weight: normal; font-size: 16px; color: #999; line-height: 1.4; }
+
+/* Default Link Styles */
+a, a:link, a:visited { color: #0000ee; text-decoration: none; }
+a:hover, a:active, a:link:hover, a:link:active, a:visited:hover, a:visited:active { color: #551a8b; text-decoration: none; }
+
+/* Default paragraph styles */
+p { font-family: inherit; font-weight: inherit; font-size: inherit; line-height: 1.4; margin-bottom: 18px; }
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 { font-family: serif; font-weight: bold; color: #999; margin-top: 3.2px; margin-bottom: 8px; line-height: 1.6; }
+
+h1 { font-size: 44px; }
+@media only screen and (max-width: 640px) { h1 { font-size: 44px; } }
+
+h2 { font-size: 37px; }
+@media only screen and (max-width: 640px) { h2 { font-size: 37px; } }
+
+h3 { font-size: 27px; }
+@media only screen and (max-width: 640px) { h3 { font-size: 27px; } }
+
+h4 { font-size: 23px; }
+@media only screen and (max-width: 640px) { h4 { font-size: 23px; } }
+
+h5 { font-size: 18px; }
+@media only screen and (max-width: 640px) { h5 { font-size: 18px; } }
+
+h6 { font-size: 16px; }
+@media only screen and (max-width: 640px) { h6 { font-size: 16px; } }
+
+/* Default hr styles */
+hr { border: solid #999; }
+
+/* =============================================================================
+	Form Styling
+============================================================================= */
+/* =============================================================================
+	Header
+============================================================================= */
+header { position: relative; z-index: 999; }
+
+/* =============================================================================
+	Footer
+============================================================================= */
+nav.dropdown ul { width: 100%; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; list-style: none; margin: 0; padding: 0; }
+nav.dropdown li { position: relative; }
+nav.dropdown a { display: block; }
+nav.dropdown ul ul .nav__list--parent:hover:after { color: #fff; }
+nav.dropdown ul ul .nav__list--parent a { padding-right: 30px; }
+nav.dropdown ul ul .nav__list--parent:after { content: ""; font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; position: absolute; top: 50%; right: 0; -webkit-transform: translateY(-50%); transform: translateY(-50%); color: #fff; font-size: 20px; padding: 0 10px; z-index: 1; }
+nav.dropdown ul ul ul .nav__list--parent:after { color: #fff; }
+nav.dropdown ul ul ul .nav__list--parent:hover:after { color: #fff; }
+nav.dropdown > ul li:hover > a { background-color: #888; color: #fff; }
+nav.dropdown > ul a { background-color: #999; color: #fff; padding: 8px 16px; }
+nav.dropdown ul ul { display: none; position: absolute; width: auto; background-color: #777; }
+nav.dropdown ul ul li:hover > a { background-color: #666; color: #fff; }
+nav.dropdown ul ul a { background-color: #777; color: #fff; width: 240px; }
+nav.dropdown ul ul ul { top: 0; left: 100%; background-color: #555; }
+nav.dropdown ul ul ul li:hover > a { background-color: #444; color: #fff; }
+nav.dropdown ul ul ul a { background-color: #555; color: #fff; }
+nav.dropdown li:hover > ul { display: block; }
+
+nav.mobile { width: 100%; }
+nav.mobile ul { list-style: none; margin: 0; padding: 0; }
+nav.mobile a { display: block; position: relative; font-size: 16px; font-weight: 400; }
+nav.mobile a span.accordian_toggle { width: 50px; height: 100%; position: absolute; top: 0; bottom: 0; right: 0; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+nav.mobile a span.accordian_toggle:after { font-family: FontAwesome; font-style: normal; font-weight: normal; text-decoration: inherit; content: ""; font-size: 30px; }
+nav.mobile a span.accordian_toggle:hover:after { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
+nav.mobile li.nav__list--parent a { padding-right: 50px; }
+nav.mobile li.accordian_open > a { color: null; background: null; }
+nav.mobile li.accordian_open > a > span.accordian_toggle:after { -webkit-transform: rotate(90deg); transform: rotate(90deg); }
+nav.mobile ul li:not(:last-child) a { border-bottom: 1px solid #fff; }
+nav.mobile ul li a { font-size: 14px; padding: 20px; background: #333; color: #fff; }
+nav.mobile ul li:hover > a { background: #333; color: #fff; }
+nav.mobile ul ul { display: none; }
+nav.mobile ul ul li a { padding: 20px 20px 20px 40px; background: #666; color: #fff; }
+nav.mobile ul ul li:hover > a { background: #666; color: #fff; }
+nav.mobile ul ul ul { display: none; }
+nav.mobile ul ul ul li a { padding: 20px 20px 20px 60px; background: #999; color: #fff; }
+nav.mobile ul ul ul li:hover > a { background: #999; color: #fff; }
+
+/* =============================================================================
+	General
+============================================================================= */
+/* =============================================================================
+	Activity layout
+============================================================================= */
+body { background: seagreen; }
+
+/* ============================================================================= Admin layout
+============================================================================= */
+/* =============================================================================
+	General QA
+============================================================================= */
+/* =============================================================================
+	Browser QA
+============================================================================= */
+/* Modern */
+/* Internet Explorer 9 (.ie9) */
+/* Internet Explorer 8 (.ie8) */
+/* Internet Explorer 8 & Internet Explorer 7 (.oldie) */
+/* Internet Explorer 7 (.ie7) */
+/* =============================================================================
+	Extras                                                              
+============================================================================= */
+.clearfix { zoom: 1; }
+.clearfix:before, .clearfix:after { content: " "; display: table; }
+.clearfix:after { clear: both; }
+
+/* Print Styles */
+@media print { * { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { text-decoration: underline; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  a[href^="#"]:after, a[href^="javascript:"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; } }
