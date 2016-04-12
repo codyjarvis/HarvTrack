@@ -45,7 +45,7 @@ def view_activity():
     observers = get_observers()
     activities = get_activities()
 
-    return render_template('viewactivity.html', entries=entries, observers=observers, activities=activities)
+    return render_template('activity.html', entries=entries, observers=observers, activities=activities)
 
 
 def get_observers():

@@ -1,0 +1,131 @@
+/* =============================================================================
+	Structure
+============================================================================= */
+html {
+	background: $html-background;
+}
+body {
+	background: $color-background-1;
+	margin: 0;
+	padding: 0;
+	text-rendering: optimizeLegibility;
+}
+.container {
+	padding-top: $container-padding-top;
+	padding-bottom: $container-padding-bottom;
+	+ * {
+		margin-top: 0;
+	}
+}
+.wrap {
+	margin: 0 auto;
+	max-width: $wrap-width;
+}
+.row {
+	@include large {
+		max-width: 1000px;
+	}
+	@include xlarge {
+		max-width: 1200px;
+	}
+	@include xxlarge {
+		max-width: 1400px;
+	}
+}
+
+/* =============================================================================
+	Typography                                                                 
+============================================================================= */
+/* Typography resets */
+em, i {
+  font-style: italic;
+  line-height: inherit;
+}
+strong, b {
+  font-weight: bold;
+  line-height: inherit;
+}
+small {
+  font-size: 60%;
+  line-height: inherit;
+}
+// html {
+// 	-webkit-font-smoothing: antialiased;
+// }
+body {
+	font-family: $font-family-1;
+	font-weight: $font-weight-normal;
+	font-size: $font-size;
+	color: $color-text-1;
+	line-height: $paragraph-line-height;
+}
+/* Default Link Styles */
+a, a:link, a:visited {
+	color: $color-link-1;
+	text-decoration: none;
+	&:hover, &:active {
+		color: $color-hover-1;
+		text-decoration: none;
+	}
+}
+
+/* Default paragraph styles */
+p {
+	font-family: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	line-height: $paragraph-line-height;
+	margin-bottom: $paragraph-bottom-margin;
+}
+
+/* Default header styles */
+h1, h2, h3, h4, h5, h6 {
+	font-family: $font-family-2;
+	font-weight: $font-weight-bold;
+	color: $color-header-1;
+	margin-top: $header-margin-top;
+	margin-bottom: $header-margin-bottom;
+	line-height: $header-line-height;
+}
+h1 {
+	font-size: $h1-font-size;
+	@include small-down {
+		font-size: $h1-font-size-small;
+	}
+}
+h2 {
+	font-size: $h2-font-size;
+	@include small-down {
+		font-size: $h2-font-size-small;
+
+	}
+}
+h3 {
+	font-size: $h3-font-size;
+	@include small-down {
+		font-size: $h3-font-size-small;
+	}
+}
+h4 {
+	font-size: $h4-font-size;
+	@include small-down {
+		font-size: $h4-font-size-small;
+	}
+}
+h5 {
+	font-size: $h5-font-size;
+	@include small-down {
+		font-size: $h5-font-size-small;
+	}
+}
+h6 {
+	font-size: $h6-font-size;
+	@include small-down {
+		font-size: $h6-font-size-small;
+	}
+}
+
+/* Default hr styles */
+hr {
+	border: solid $color-border-1;
+}
