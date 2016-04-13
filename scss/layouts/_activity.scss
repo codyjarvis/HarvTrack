@@ -7,6 +7,11 @@ body {
   height: 100vh;
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 0px;
   &:before {
     content: "";
     position: absolute;
@@ -21,27 +26,85 @@ body {
     position: relative;
   }
   .primary-container {
-    background: rgba($black, 0.45);
-    padding: 30px 20px;
-    margin: 0px 40px;
+    // background: rgba($black, 0.45);
+    // padding: 30px 20px;
+    // margin: 0px 40px;
   }
   .activity-container {
+    background: rgba($black, 0.45);
+    padding: 30px 20px;
+    margin: 10px 40px 0px 40px;
     form {
 
     }
     .select-container {
       display: flex;
+      flex-wrap: wrap;
       select {
         flex: 1;
+      }
+      @include xsmall-down {
+        flex-direction: column;
       }
     }
     .input-container {
       display: flex;
+      flex-wrap: wrap;
       input {
         flex: 1;
       }
+      @include xsmall-down {
+        flex-direction: column;
+      }
     }
   }
-  .view-container {}
+  .view-container {
+       margin: 35px 10px 20px 10px;
+       font-size: 16px;
+       font-family: "Playfair Display";
+       letter-spacing: 1px;
+       max-width: 100%;
+       // border: 3px solid $white;
+      
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      li:nth-child(even) {
+        background: rgba($black, 0.3);
+  
+      }
+      li:nth-child(odd) {
+        background: rgba($black, 0.8);
+      }
+    }
+    .entry-observer, .entry-activity, .entry-notes, .entry-date {
+      flex: 1;
+      padding: 5px 7px;
+      margin: 5px;
+      display: flex;
+      align-items: center;
+
+    }
+    .entry-observer {
+      background: transparent;
+      
+    }
+    .entry-activity {
+      background: transparent;
+    }
+    .entry-notes {
+      background: transparent;
+    }
+    .entry-date {
+      background: transparent;
+    }
+  }
 }
 

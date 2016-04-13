@@ -1,17 +1,22 @@
 {% extends "layout.html" %}
   {% block body %}
+
+  <!-- BEGIN admin-container -->
+  <div class="admin-container">
+    
+
 <form action="{{ url_for('add_user') }}" method=post class=add-user>
       <dl>
-         <dt>Add User: </dt>
-        <dd><input type=text size=30 name=username>
+        <!--  <dt>Add User: </dt> -->
+        <dd><input placeholder="Add User" type=text name=username>
         <input type=submit value=Submit>
           </dd>
       </dl>
     </form>
 <form action="{{ url_for('add_activity') }}" method=post class=add-activity>
       <dl>
-        <dt>Add Activity Type: </dt>
-        <dd><input type=text size=30 name=activityType>
+  <!--       <dt>Add Activity Type: </dt> -->
+        <dd><input placeholder="Add Activity" type=text name=activityType>
         <input type=submit value=Submit> </dd>
 
       </dl>
@@ -19,8 +24,8 @@
 
 <form action="{{ url_for('delete_acts') }}" method=post class=delete_act>
       <dl>
-         <dt>Remove Activity Entry (ID): </dt>
-        <dd><input type=text size=30 name=activityid>
+      <!--    <dt>Remove Activity Entry (ID): </dt> -->
+        <dd><input placeholder="Remove Activity" type=text name=activityid>
         <input type=submit value=Submit>
           </dd>
       </dl>
@@ -34,5 +39,7 @@
   {% endfor %}
   </ul>
 
+  </div>
+  <!-- END admin-container -->
 
 {% endblock %}

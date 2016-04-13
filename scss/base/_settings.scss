@@ -1,5 +1,6 @@
 // SETTINGS //
 // Fonts - Include Google Fonts Here
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
 
 // Settings
@@ -11,7 +12,7 @@ $container-padding-bottom: 60px;
 
 // Text Defaults
 $font-size:          16px;
-$font-family-1:      "Playfair Display", sans-serif;
+$font-family-1:      "Open Sans", serif;
 $font-family-2:      "Playfair Display", sans-serif;
 $font-weight-normal: normal;
 $font-weight-bold:   bold;
@@ -44,10 +45,10 @@ $header-margin-bottom:	$font-size * 0.5;
 
 // COLORS //
 // Main Colors
-$color-1: null !default;
-$color-2: null !default;
-$color-3: null !default;
-$color-4: null !default;
+$orange: #D8690C !default; 
+$yellow: goldenrod !default;
+$red: #AC1C1C !default;
+$green: #4B570A !default;
 $color-5: null !default;
 $white: #fff !default;
 $black: #000 !default;
@@ -74,8 +75,8 @@ $color-link-3:  #0000ee !default;
 $color-hover-3: #551a8b !default;
 
 // Header Colors
-$color-header-1: $white !default;
-$color-header-2: $white !default;
+$color-header-1: $yellow !default;
+$color-header-2: $yellow !default;
 $color-header-3: $white !default;
 
 // Text Colors

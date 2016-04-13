@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600");
 @import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
 /* =============================================================================
 	Structure
@@ -24,7 +25,7 @@ strong, b { font-weight: bold; line-height: inherit; }
 
 small { font-size: 60%; line-height: inherit; }
 
-body { font-family: "Playfair Display", sans-serif; font-weight: normal; font-size: 16px; color: #fff; line-height: 1.4; }
+body { font-family: "Open Sans", serif; font-weight: normal; font-size: 16px; color: #fff; line-height: 1.4; }
 
 /* Default Link Styles */
 a, a:link, a:visited { color: #0000ee; text-decoration: none; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
@@ -34,7 +35,7 @@ a:hover, a:active, a:link:hover, a:link:active, a:visited:hover, a:visited:activ
 p { font-family: inherit; font-weight: inherit; font-size: inherit; line-height: 1.4; margin-bottom: 18px; }
 
 /* Default header styles */
-h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", sans-serif; font-weight: bold; color: #fff; margin-top: 3.2px; margin-bottom: 8px; line-height: 1.6; }
+h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", sans-serif; font-weight: bold; color: goldenrod; margin-top: 3.2px; margin-bottom: 8px; line-height: 1.6; }
 
 h1 { font-size: 44px; }
 @media only screen and (max-width: 640px) { h1 { font-size: 44px; } }
@@ -60,10 +61,12 @@ hr { border: solid #999; }
 /* =============================================================================
 	Form Styling
 ============================================================================= */
-select, input { margin: .5rem 1rem; height: 25px; border: 3px solid #fff; color: #fff; background: transparent; padding: 5px 5px 5px 10px; font-size: 14px; font-family: "Playfair Display", sans-serif; }
+select, input { margin: .5rem; height: 20px; border: 3px solid #fff; color: #fff; background: transparent; padding: 5px 5px 5px 10px; font-size: 14px; font-family: "Playfair Display", sans-serif; }
 
-input[type="submit"] { background: goldenrod; padding: 8px 20px; height: 41px; margin: 7px 10px; border: 3px solid goldenrod; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
-input[type="submit"]:hover { background: transparent; color: goldenrod; }
+select { padding: 5px 30px 5px 10px; line-height: 1; height: 35px; border-radius: 0; -webkit-appearance: none; position: relative; background: url("../../static/graphics/layout/select.png") 99% 5px; background-repeat: no-repeat; }
+
+input[type="submit"] { background: transparent; color: goldenrod; padding: 5px 20px; height: 39px; margin: 7px 10px; border: 3px solid goldenrod; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+input[type="submit"]:hover { background: goldenrod; color: #fff; }
 
 ::-webkit-input-placeholder { color: #fff; }
 
@@ -76,7 +79,7 @@ input[type="submit"]:hover { background: transparent; color: goldenrod; }
 /* =============================================================================
 	Header
 ============================================================================= */
-header { position: relative; z-index: 999; text-align: center; padding: 40px 0px; }
+header { position: relative; z-index: 999; text-align: center; }
 header h1 { letter-spacing: 2px; }
 
 /* =============================================================================
@@ -125,17 +128,32 @@ nav.mobile ul ul ul li:hover > a { background: #999; color: #fff; }
 /* =============================================================================
 	Activity layout
 ============================================================================= */
-body { background-image: url("../../static/graphics/harv3.jpg"); background-size: cover; height: 100vh; width: 100%; position: relative; }
+body { background-image: url("../../static/graphics/harv3.jpg"); background-size: cover; height: 100vh; width: 100%; position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -webkit-justify-content: center; -ms-flex-pack: center; justify-content: center; -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; padding: 40px 0px; }
 body:before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-image: url("../../static/graphics/layout/bg.png"); z-index: 0; }
 body main { position: relative; }
-body .primary-container { background: rgba(0, 0, 0, 0.45); padding: 30px 20px; margin: 0px 40px; }
-body .activity-container .select-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+body .activity-container { background: rgba(0, 0, 0, 0.45); padding: 30px 20px; margin: 10px 40px 0px 40px; }
+body .activity-container .select-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 body .activity-container .select-container select { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
-body .activity-container .input-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+@media only screen and (max-width: 320px) { body .activity-container .select-container { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; } }
+body .activity-container .input-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 body .activity-container .input-container input { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
+@media only screen and (max-width: 320px) { body .activity-container .input-container { -webkit-box-orient: vertical; -webkit-box-direction: normal; -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; } }
+body .view-container { margin: 35px 10px 20px 10px; font-size: 16px; font-family: "Playfair Display"; letter-spacing: 1px; max-width: 100%; }
+body .view-container ul { list-style: none; margin: 0; padding: 0; }
+body .view-container ul li { margin: 0; padding: 0; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; }
+body .view-container ul li:nth-child(even) { background: rgba(0, 0, 0, 0.3); }
+body .view-container ul li:nth-child(odd) { background: rgba(0, 0, 0, 0.8); }
+body .view-container .entry-observer, body .view-container .entry-activity, body .view-container .entry-notes, body .view-container .entry-date { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; padding: 5px 7px; margin: 5px; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-box-align: center; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
+body .view-container .entry-observer { background: transparent; }
+body .view-container .entry-activity { background: transparent; }
+body .view-container .entry-notes { background: transparent; }
+body .view-container .entry-date { background: transparent; }
 
 /* ============================================================================= Admin layout
 ============================================================================= */
+.admin-container { background: rgba(0, 0, 0, 0.45); padding: 30px 20px; margin: 10px 40px 0px 40px; }
+.admin-container dd { margin: 0; }
+
 /* =============================================================================
 	General QA
 ============================================================================= */

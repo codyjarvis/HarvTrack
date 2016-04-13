@@ -1,6 +1,7 @@
 
 <!doctype html>
 <title>HarvTrack</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel=stylesheet type=text/css href="/static/stylesheet.css">
 <header>
   <!-- BEGIN .wrap -->
@@ -18,58 +19,157 @@
 
 <!-- BEGIN .primary-container -->
 <div class="primary-container">
-<!-- BEGIN .activity-container -->
-<div class="activity-container">
-<form action="/log_activity" method=post class=log_activity>
+  <!-- BEGIN .activity-container -->
+  <div class="activity-container">
+    <form action="/log_activity" method=post class=log_activity>
 
-<!-- BEGIN .select-container -->
-<div class="select-container">
-  
-<select name="observer">
-<option value="">Choose Observer</option>
-    
-        <option value="1"> Cody</option>
-    
-        <option value="2"> Jaymee</option>
-    
-</select>
+      <!-- BEGIN .select-container -->
+      <div class="select-container">
+        
+        <select name="observer">
+          <option value="">Choose Observer</option>
+          
+          <option value="1"> Jaymee </option>
+          
+          <option value="2"> Cody</option>
+          
+          <option value="3"> Harvey</option>
+          
+        </select>
 
-<select name="activity">
-<option value="">Choose Activity</option>
-    
-        <option value="1"> Licking</option>
-    
-</select>
-</div>
-<!-- END .select-container -->
-<!-- BEGIN .input-container -->
-<div class="input-container">
-  
+        <select name="activity">
+          <option value="">Choose Activity</option>
+          
+          <option value="1"> Walk</option>
+          
+          <option value="2"> Sighing loudly</option>
+          
+          <option value="3"> Showing Attitude</option>
+          
+        </select>
+      </div>
+      <!-- END .select-container -->
+      <!-- BEGIN .input-container -->
+      <div class="input-container">
+        
 
-  <input placeholder="Length" type=text size=3 name=length>
+        <input placeholder="Length" type=text name=length>
 
-    <input placeholder="Notes" type=text size=50 name=notes>
-<input type=submit value=Submit>
-</div>
-<!-- END .input-container -->
-</form>
-</div>
-<!-- END .activity-container -->
-<!-- BEGIN .view-container -->
-<div class="view-container">
-  
-<ul class=entries>
-  
-    <li>Jaymee Licking His paws and bits
-        04/11/2016 22:24 34</li>
-  
-  </ul>
+        <input placeholder="Notes" type=text name=notes>
+        <input type=submit value=Submit>
+      </div>
+      <!-- END .input-container -->
+    </form>
   </div>
-  <!-- END .view-container -->
+  <!-- END .activity-container -->
+  <!-- BEGIN .view-container -->
+  <div class="view-container">
+    
+    <ul class=entries>
+      
+      <li>
+        <!-- BEGIN .observer -->
+        <div class="entry-observer">
+          Cody 
+        </div>
+        <!-- END .observer -->
+        <!-- BEGIN .activity -->
+        <div class="entry-activity">
+          Walk
+        </div>
+        <!-- END .activity --> 
+        <!-- BEGIN .notes -->
+        <div class="entry-notes">
+          Tired
+        </div>
+        <!-- END .notes -->
+        <!-- BEGIN .date -->
+        <div class="entry-date">
+          04/12/2016 21:30 5 mi
+        </div>
+        <!-- END .date -->
+
+      </li>
+      
+      <li>
+        <!-- BEGIN .observer -->
+        <div class="entry-observer">
+          Jaymee  
+        </div>
+        <!-- END .observer -->
+        <!-- BEGIN .activity -->
+        <div class="entry-activity">
+          Showing Attitude
+        </div>
+        <!-- END .activity --> 
+        <!-- BEGIN .notes -->
+        <div class="entry-notes">
+          Seriously!
+        </div>
+        <!-- END .notes -->
+        <!-- BEGIN .date -->
+        <div class="entry-date">
+          04/12/2016 21:30 24/7
+        </div>
+        <!-- END .date -->
+
+      </li>
+      
+      <li>
+        <!-- BEGIN .observer -->
+        <div class="entry-observer">
+          Cody 
+        </div>
+        <!-- END .observer -->
+        <!-- BEGIN .activity -->
+        <div class="entry-activity">
+          Showing Attitude
+        </div>
+        <!-- END .activity --> 
+        <!-- BEGIN .notes -->
+        <div class="entry-notes">
+          Seriously 
+        </div>
+        <!-- END .notes -->
+        <!-- BEGIN .date -->
+        <div class="entry-date">
+          04/12/2016 21:30 Infinity
+        </div>
+        <!-- END .date -->
+
+      </li>
+      
+      <li>
+        <!-- BEGIN .observer -->
+        <div class="entry-observer">
+          Cody 
+        </div>
+        <!-- END .observer -->
+        <!-- BEGIN .activity -->
+        <div class="entry-activity">
+          Sighing loudly
+        </div>
+        <!-- END .activity --> 
+        <!-- BEGIN .notes -->
+        <div class="entry-notes">
+          
+        </div>
+        <!-- END .notes -->
+        <!-- BEGIN .date -->
+        <div class="entry-date">
+          04/12/2016 22:07 
+        </div>
+        <!-- END .date -->
+
+      </li>
+      
+      </ul>
+    </div>
+    <!-- END .view-container -->
     
   </div>
   <!-- END .primary-container -->
-
+  
   </div>
   <!-- END .wrap -->
 </main>

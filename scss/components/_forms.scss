@@ -2,29 +2,42 @@
 	Form Styling
 ============================================================================= */
 select, input {
-    margin: .5rem 1rem;
-    height: 25px;
+    margin: .5rem;
+    height: 20px;
     border: 3px solid $white;
     color: $white;
     background: transparent;
     padding: 5px 5px 5px 10px;
     font-size: 14px;
-    font-family: $font-family-1;
+    font-family: $font-family-2;
+}
+
+select {
+  padding: 5px 30px 5px 10px;
+    line-height: 1;
+    height: 35px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    position: relative;
+    background: url("../../static/graphics/layout/select.png") 99% 5px;
+   background-repeat: no-repeat;
+   
 }
 
 input[type="submit"] {
-    background: goldenrod;
-    padding: 8px 20px;
-    height: 41px;
+    background: transparent;
+    color: $yellow;
+    padding: 5px 20px;
+    height: 39px;
     margin: 7px 10px;
-    border: 3px solid goldenrod;
+    border: 3px solid $yellow;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 14px;
     transition: all 0.3s ease;
     &:hover {
-      background: transparent;
-      color: goldenrod;
+      background: $yellow;
+      color: $white;
     }
 }
 
