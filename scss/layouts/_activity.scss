@@ -2,6 +2,43 @@
 	Activity layout
 ============================================================================= */
 body {
-  background: seagreen;
+  background-image: url('../../graphics/harv3.jpg');
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url('../../graphics/layout/bg.png');
+    z-index: 0;
+  }
+  main {
+    position: relative;
+  }
+  .primary-container {
+  }
+  .activity-container {
+    form {
+
+    }
+    .select-container {
+      display: flex;
+      select {
+        flex: 1;
+      }
+    }
+    .input-container {
+      display: flex;
+      input {
+        flex: 1;
+      }
+    }
+  }
+  .view-container {}
 }
 

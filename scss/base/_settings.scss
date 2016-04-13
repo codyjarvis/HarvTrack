@@ -1,8 +1,9 @@
 // SETTINGS //
 // Fonts - Include Google Fonts Here
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
 
 // Settings
-$wrap-width: 1140px;
+$wrap-width: 750px;
 $wrap-padding: 0 20px;
 $global-radius: 5px;
 $container-padding-top: 60px;
@@ -10,8 +11,8 @@ $container-padding-bottom: 60px;
 
 // Text Defaults
 $font-size:          16px;
-$font-family-1:      sans-serif;
-$font-family-2:      serif;
+$font-family-1:      "Playfair Display", sans-serif;
+$font-family-2:      "Playfair Display", sans-serif;
 $font-weight-normal: normal;
 $font-weight-bold:   bold;
 
@@ -48,6 +49,7 @@ $color-2: null !default;
 $color-3: null !default;
 $color-4: null !default;
 $color-5: null !default;
+$white: #fff !default;
 
 // Background Colors
 $html-background:    null !default;
@@ -71,15 +73,15 @@ $color-link-3:  #0000ee !default;
 $color-hover-3: #551a8b !default;
 
 // Header Colors
-$color-header-1: #999 !default;
-$color-header-2: #555 !default;
-$color-header-3: #222 !default;
+$color-header-1: $white !default;
+$color-header-2: $white !default;
+$color-header-3: $white !default;
 
 // Text Colors
-$color-text-1: #999 !default;
-$color-text-2: #555 !default;
-$color-text-3: #222 !default;
-$color-text-4: #fff !default;
+$color-text-1: $white !default;
+$color-text-2: $white !default;
+$color-text-3: $white !default;
+$color-text-4: $white !default;
 
 // Accent Colors
 $color-accent-1: null;
