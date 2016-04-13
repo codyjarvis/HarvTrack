@@ -1,6 +1,21 @@
-{% extends "layout.html" %}
-  {% block body %}
-<form action="{{ url_for('add_user') }}" method=post class=add-user>
+
+<!doctype html>
+<title>HarvTrack</title>
+<link rel=stylesheet type=text/css href="/static/stylesheet.css">
+<header>
+  <!-- BEGIN .wrap -->
+  <div class="wrap">
+    <h1>HarvTrack</h1>
+  </div>
+  <!-- END .wrap -->
+</header>
+<main>
+<!-- BEGIN .wrap -->
+<div class="wrap">
+    
+
+  
+<form action="/add_user" method=post class=add-user>
       <dl>
          <dt>Add User: </dt>
         <dd><input type=text size=30 name=username>
@@ -8,7 +23,7 @@
           </dd>
       </dl>
     </form>
-<form action="{{ url_for('add_activity') }}" method=post class=add-activity>
+<form action="/add_activity" method=post class=add-activity>
       <dl>
         <dt>Add Activity Type: </dt>
         <dd><input type=text size=30 name=activityType>
@@ -17,7 +32,7 @@
       </dl>
     </form>
 
-<form action="{{ url_for('delete_acts') }}" method=post class=delete_act>
+<form action="/remove_logged_activity" method=post class=delete_act>
       <dl>
          <dt>Remove Activity Entry (ID): </dt>
         <dd><input type=text size=30 name=activityid>
@@ -27,12 +42,13 @@
 </form>
 
 <ul class=entries>
-  {% for entry in del_entries %}
-    <li>{{ entry.id|safe }} {{ entry.activitydescription|safe }}</li>
-  {% else %}
-    <li><em>Unbelievable.  No entries here so far</em>
-  {% endfor %}
+  
+    <li>1 His paws and bits</li>
+  
   </ul>
 
 
-{% endblock %}
+
+  </div>
+  <!-- END .wrap -->
+</main>

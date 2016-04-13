@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:400,700");
 /* =============================================================================
 	Structure
 ============================================================================= */
@@ -7,7 +8,7 @@ body { background: #fff; margin: 0; padding: 0; text-rendering: optimizeLegibili
 .container { padding-top: 60px; padding-bottom: 60px; }
 .container + * { margin-top: 0; }
 
-.wrap { margin: 0 auto; max-width: 1140px; }
+.wrap { margin: 0 auto; max-width: 750px; }
 
 @media only screen and (min-width: 801px) { .row { max-width: 1000px; } }
 @media only screen and (min-width: 1025px) { .row { max-width: 1200px; } }
@@ -23,17 +24,17 @@ strong, b { font-weight: bold; line-height: inherit; }
 
 small { font-size: 60%; line-height: inherit; }
 
-body { font-family: sans-serif; font-weight: normal; font-size: 16px; color: #999; line-height: 1.4; }
+body { font-family: "Playfair Display", sans-serif; font-weight: normal; font-size: 16px; color: #fff; line-height: 1.4; }
 
 /* Default Link Styles */
-a, a:link, a:visited { color: #0000ee; text-decoration: none; }
+a, a:link, a:visited { color: #0000ee; text-decoration: none; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
 a:hover, a:active, a:link:hover, a:link:active, a:visited:hover, a:visited:active { color: #551a8b; text-decoration: none; }
 
 /* Default paragraph styles */
 p { font-family: inherit; font-weight: inherit; font-size: inherit; line-height: 1.4; margin-bottom: 18px; }
 
 /* Default header styles */
-h1, h2, h3, h4, h5, h6 { font-family: serif; font-weight: bold; color: #999; margin-top: 3.2px; margin-bottom: 8px; line-height: 1.6; }
+h1, h2, h3, h4, h5, h6 { font-family: "Playfair Display", sans-serif; font-weight: bold; color: #fff; margin-top: 3.2px; margin-bottom: 8px; line-height: 1.6; }
 
 h1 { font-size: 44px; }
 @media only screen and (max-width: 640px) { h1 { font-size: 44px; } }
@@ -59,10 +60,13 @@ hr { border: solid #999; }
 /* =============================================================================
 	Form Styling
 ============================================================================= */
+select, input { margin: .5rem 1rem; height: 25px; }
+
 /* =============================================================================
 	Header
 ============================================================================= */
-header { position: relative; z-index: 999; }
+header { position: relative; z-index: 999; text-align: center; padding: 40px 0px; }
+header h1 { letter-spacing: 2px; }
 
 /* =============================================================================
 	Footer
@@ -108,10 +112,18 @@ nav.mobile ul ul ul li:hover > a { background: #999; color: #fff; }
 	General
 ============================================================================= */
 /* =============================================================================
-	Homepage
+	Activity layout
 ============================================================================= */
-body { background: crimson; }
+body { background-image: url("../../graphics/harv3.jpg"); background-size: cover; height: 100vh; width: 100%; position: relative; }
+body:before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-image: url("../../graphics/layout/bg.png"); z-index: 0; }
+body main { position: relative; }
+body .activity-container .select-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+body .activity-container .select-container select { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
+body .activity-container .input-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
+body .activity-container .input-container input { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
 
+/* ============================================================================= Admin layout
+============================================================================= */
 /* =============================================================================
 	General QA
 ============================================================================= */

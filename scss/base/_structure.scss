@@ -63,6 +63,7 @@ body {
 a, a:link, a:visited {
 	color: $color-link-1;
 	text-decoration: none;
+	transition: all 0.3s ease;
 	&:hover, &:active {
 		color: $color-hover-1;
 		text-decoration: none;

@@ -1,27 +1,44 @@
-{% extends "layout.html" %}
-{% block body %}
+
+<!doctype html>
+<title>HarvTrack</title>
+<link rel=stylesheet type=text/css href="/static/stylesheet.css">
+<header>
+  <!-- BEGIN .wrap -->
+  <div class="wrap">
+    <h1>HarvTrack</h1>
+  </div>
+  <!-- END .wrap -->
+</header>
+<main>
+<!-- BEGIN .wrap -->
+<div class="wrap">
+    
+
+  
 
 <!-- BEGIN .primary-container -->
 <div class="primary-container">
 <!-- BEGIN .activity-container -->
 <div class="activity-container">
-<form action="{{ url_for('log_activity') }}" method=post class=log_activity>
+<form action="/log_activity" method=post class=log_activity>
 
 <!-- BEGIN .select-container -->
 <div class="select-container">
   
 <select name="observer">
 <option value="">Choose Observer</option>
-    {% for observer in observers %}
-        <option value="{{ observer.observerid }}"> {{ observer.observername }}</option>
-    {% endfor %}
+    
+        <option value="1"> Cody</option>
+    
+        <option value="2"> Jaymee</option>
+    
 </select>
 
 <select name="activity">
 <option value="">Choose Activity</option>
-    {% for activity in activities %}
-        <option value="{{ activity.activityid }}"> {{ activity.activityname }}</option>
-    {% endfor %}
+    
+        <option value="1"> Licking</option>
+    
 </select>
 </div>
 <!-- END .select-container -->
@@ -42,16 +59,17 @@
 <div class="view-container">
   
 <ul class=entries>
-  {% for entry in entries %}
-    <li>{{ entry.observer|safe }} {{ entry.activity|safe }} {{ entry.notes|safe }}
-        {{ entry.date|safe }} {{ entry.time|safe }} {{ entry.length|safe }}</li>
-  {% else %}
-    <li><em>Unbelievable.  No entries here so far</em>
-  {% endfor %}
+  
+    <li>Jaymee Licking His paws and bits
+        04/11/2016 22:24 34</li>
+  
   </ul>
   </div>
   <!-- END .view-container -->
     
   </div>
   <!-- END .primary-container -->
-{% endblock %}
+
+  </div>
+  <!-- END .wrap -->
+</main>
