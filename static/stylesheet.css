@@ -60,7 +60,18 @@ hr { border: solid #999; }
 /* =============================================================================
 	Form Styling
 ============================================================================= */
-select, input { margin: .5rem 1rem; height: 25px; }
+select, input { margin: .5rem 1rem; height: 25px; border: 3px solid #fff; color: #fff; background: transparent; padding: 5px 5px 5px 10px; font-size: 14px; font-family: "Playfair Display", sans-serif; }
+
+input[type="submit"] { background: goldenrod; padding: 8px 20px; height: 41px; margin: 7px 10px; border: 3px solid goldenrod; text-transform: uppercase; letter-spacing: 2px; font-size: 14px; -webkit-transition: all 0.3s ease; transition: all 0.3s ease; }
+input[type="submit"]:hover { background: transparent; color: goldenrod; }
+
+::-webkit-input-placeholder { color: #fff; }
+
+:-moz-placeholder { /* Firefox 18- */ color: #fff; }
+
+::-moz-placeholder { /* Firefox 19+ */ color: #fff; }
+
+:-ms-input-placeholder { color: #fff; }
 
 /* =============================================================================
 	Header
@@ -114,9 +125,10 @@ nav.mobile ul ul ul li:hover > a { background: #999; color: #fff; }
 /* =============================================================================
 	Activity layout
 ============================================================================= */
-body { background-image: url("../../graphics/harv3.jpg"); background-size: cover; height: 100vh; width: 100%; position: relative; }
-body:before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-image: url("../../graphics/layout/bg.png"); z-index: 0; }
+body { background-image: url("../../static/graphics/harv3.jpg"); background-size: cover; height: 100vh; width: 100%; position: relative; }
+body:before { content: ""; position: absolute; top: 0; bottom: 0; right: 0; left: 0; background-image: url("../../static/graphics/layout/bg.png"); z-index: 0; }
 body main { position: relative; }
+body .primary-container { background: rgba(0, 0, 0, 0.45); padding: 30px 20px; margin: 0px 40px; }
 body .activity-container .select-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }
 body .activity-container .select-container select { -webkit-box-flex: 1; -webkit-flex: 1; -ms-flex: 1; flex: 1; }
 body .activity-container .input-container { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; }

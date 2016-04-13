@@ -4,4 +4,42 @@
 select, input {
     margin: .5rem 1rem;
     height: 25px;
+    border: 3px solid $white;
+    color: $white;
+    background: transparent;
+    padding: 5px 5px 5px 10px;
+    font-size: 14px;
+    font-family: $font-family-1;
+}
+
+input[type="submit"] {
+    background: goldenrod;
+    padding: 8px 20px;
+    height: 41px;
+    margin: 7px 10px;
+    border: 3px solid goldenrod;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    &:hover {
+      background: transparent;
+      color: goldenrod;
+    }
+}
+
+::-webkit-input-placeholder {
+   color: $white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: $white;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: $white;  
+}
+
+:-ms-input-placeholder {  
+   color: $white;  
 }
