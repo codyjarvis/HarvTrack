@@ -7,9 +7,9 @@
   <div class="activity-container">
     <form action="{{ url_for('log_activity') }}" method=post class=log_activity>
 
-      <!-- BEGIN .select-container -->
-      <div class="select-container">
-        
+      <!-- BEGIN .row-1 -->
+      <div class="row-1">
+
         <select name="observer">
           <option value="">Choose Observer</option>
           {% for observer in observers %}
@@ -23,71 +23,51 @@
           <option value="{{ activity.activityid }}"> {{ activity.activityname }}</option>
           {% endfor %}
         </select>
-      </div>
-      <!-- END .select-container -->
-      <!-- BEGIN .input-container -->
-      <div class="input-container">
-        
 
         <input placeholder="Length" type=text name=length>
-
+      </div>
+      <!-- END .row-1 -->
+      <!-- BEGIN .row-2 -->
+      <div class="row-2">
         <input placeholder="Notes" type=text name=notes>
         <input type=submit value=Submit>
       </div>
-      <!-- END .input-container -->
+      <!-- END .row-2 -->
     </form>
   </div>
   <!-- END .activity-container -->
   <!-- BEGIN .view-container -->
   <div class="view-container">
-    <!-- BEGIN .titles -->
-    <ul class="titles">
-      <li>title</li>
-      <li>title</li>
-      <li>title</li>
-      <li>title</li>
-      <li>title</li>
-      <li>title</li>
-    </ul>
-    <!-- END .titles -->
-    <ul class=entries>
-      {% for entry in entries %}
-      <li>
-        <!-- BEGIN .observer -->
-        <div class="entry-observer">
-          {{ entry.observer|safe }} 
-        </div>
-        <!-- END .observer -->
-        <!-- BEGIN .activity -->
-        <div class="entry-activity">
-          {{ entry.activity|safe }}
-        </div>
-        <!-- END .activity --> 
-        <!-- BEGIN .notes -->
-        <div class="entry-notes">
-          {{ entry.notes|safe }}
-        </div>
-        <!-- END .notes -->
-        <!-- BEGIN .date -->
-        <div class="entry-date">
-          {{ entry.date|safe }} 
-        </div>
-        <!-- END .date -->
-        <!-- BEGIN .entry-time -->
-        <div class="entry-time">
-          {{ entry.time|safe }}
-        </div>
-        <!-- END .entry-time -->
-        <!-- BEGIN .entry-length -->
-        <div class="entry-length">
-          {{ entry.length|safe }}
-        </div>
-        <!-- END .entry-length -->
-      </li>
-      {% else %}
-      <li><em>Unbelievable.  No entries here so far</em>
+
+    <table>
+      <thead>
+        <tr>
+          <th class="title title-observer">Witness</th>
+          <th class="title title-activity">Activity</th>
+          <th class="title title-notes">Notes</th>
+          <th class="title title-date">Date/Time</th>
+          <th class="title title-length">Length</th>
+        </tr> 
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td class="entry entry-observer">{{ entry.observer|safe }}</td>
+
+          <td class="entry entry-activity">{{ entry.activity|safe }}</td>
+
+          <td class="entry entry-notes">{{ entry.notes|safe }}</td>
+
+          <td class="entry entry-date">{{ entry.date|safe }} {{ entry.time|safe }}</td>
+
+          <td class="entry entry-length">{{ entry.length|safe }}</td>
+        </tr>
+        {% else %}
+        <p>Unbelievable.  No entries here so far.</p>
         {% endfor %}
-      </ul>
+      </tbody>
+    </table>
+
     </div>
     <!-- END .view-container -->
     
