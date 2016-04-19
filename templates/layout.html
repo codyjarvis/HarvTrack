@@ -2,6 +2,9 @@
 <title>HarvTrack</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='stylesheet.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<!-- BEGIN .site-container -->
+<div class="site-container">
 <header>
   <!-- BEGIN .wrap -->
   <div class="wrap">
@@ -19,5 +22,8 @@
   {% block body %}{% endblock %}
   </div>
   <!-- END .wrap -->
-</main>
+</main> 
+</div>
+<!-- END .site-container -->
 
+<script src="{{ url_for('static', filename='site.min.js') }}"></script>

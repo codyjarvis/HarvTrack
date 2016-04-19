@@ -11,7 +11,10 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 40px 0px;
+  padding: 0px;
+  .site-container {
+    overflow: scroll;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -37,17 +40,17 @@ body {
     form {
 
     }
-    .select-container {
+    .row-1 {
       display: flex;
       flex-wrap: wrap;
-      select {
+      select, input {
         flex: 1;
       }
       @include xsmall-down {
         flex-direction: column;
       }
     }
-    .input-container {
+    .row-2 {
       display: flex;
       flex-wrap: wrap;
       input {
@@ -61,50 +64,95 @@ body {
   .view-container {
        margin: 35px 10px 20px 10px;
        font-size: 16px;
-       font-family: "Playfair Display";
+       font-family: $font-family-2;
        letter-spacing: 1px;
        max-width: 100%;
+       display: flex;
+       justify-content: center;
        // border: 3px solid $white;
-      
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
+       table {
+           border-collapse: collapse;
+           width: 90%;
+       }
+       thead {
+        background: $black;
+        @include small-down {
+          display: none;
+        }
+       }
+       th {
+        text-transform: uppercase;
+        color: $yellow;
+        padding: 12px 8px;
         margin: 0;
-        padding: 0;
+        text-align: left;
+        @include font(18,26,$font-weight-bold);
+        &:hover {
+          cursor: pointer;
+        }
+       }
+       tr {
+        @include small-down {
         display: flex;
-        justify-content: space-between;
-      }
-      li:nth-child(even) {
-        background: rgba($black, 0.3);
-  
-      }
-      li:nth-child(odd) {
+        flex-direction: column;
+        min-width: 100%;
+        align-items: flex-end;
+        }
+       }
+       tr:nth-child(odd) {
+       background: rgba($black, 0.3);
+       }
+       tr:nth-child(even) {
         background: rgba($black, 0.8);
+       }
+       td {
+        padding: 8px;
+        @include font(14,20,$font-weight-normal);
+        position: relative;
+        @include small-down {
+        width: 100%;
+        text-align: right;          
       }
-    }
-    .entry-observer, .entry-activity, .entry-notes, .entry-date {
-      flex: 1;
-      padding: 5px 7px;
-      margin: 5px;
-      display: flex;
-      align-items: center;
+        &:before {
+          position: absolute;
+              top: 6px;
+              left: 25px;
+              width: 45%;
+              text-align: left;
+              padding-right: 10px;
+              white-space: nowrap;
+              color: $yellow;
+              @include medium-up {
+                display: none;
+              }
+        }
 
-    }
-    .entry-observer {
-      background: transparent;
-      
-    }
-    .entry-activity {
-      background: transparent;
-    }
-    .entry-notes {
-      background: transparent;
-    }
-    .entry-date {
-      background: transparent;
-    }
+       }
+       td.entry-observer {
+        &:before {
+          content: "Witness";
+        }
+       }
+       td.entry-activity {
+        &:before {
+          content: "Activity";
+        }
+       }
+       td.entry-notes {
+        &:before {
+          content: "Notes";
+        }
+       }
+       td.entry-date {
+        &:before {
+          content: "Date/Time";
+        }
+       }
+       td.entry-length {
+        &:before {
+          content: "Length";
+        }
+       }
   }
 }
 

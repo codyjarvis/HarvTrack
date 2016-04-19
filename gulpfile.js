@@ -62,7 +62,7 @@ gulp.task('js', function(){
 		.pipe(gulp.dest('./js'))
 		.pipe(uglify())
 		.pipe(rename({basename: 'site.min'},{suffix: ''}))
-		.pipe(gulp.dest('./js'))
+		.pipe(gulp.dest('./static'))
 		.pipe(notify({ message: "js file: <%= file.relative %>"}));
 
 	return lint,js;
