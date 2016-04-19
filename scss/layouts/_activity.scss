@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 40px 0px;
+  padding: 0px;
   &:before {
     content: "";
     position: absolute;
@@ -84,7 +84,7 @@ body {
         background: rgba($black, 0.8);
       }
     }
-    .entry-observer, .entry-activity, .entry-notes, .entry-date {
+    .entry-observer, .entry-activity, .entry-notes, .entry-date, .entry-time, .entry-length{
       flex: 1;
       padding: 5px 7px;
       margin: 5px;

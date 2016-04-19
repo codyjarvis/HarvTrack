@@ -40,7 +40,16 @@
   <!-- END .activity-container -->
   <!-- BEGIN .view-container -->
   <div class="view-container">
-    
+    <!-- BEGIN .titles -->
+    <ul class="titles">
+      <li>title</li>
+      <li>title</li>
+      <li>title</li>
+      <li>title</li>
+      <li>title</li>
+      <li>title</li>
+    </ul>
+    <!-- END .titles -->
     <ul class=entries>
       {% for entry in entries %}
       <li>
@@ -61,10 +70,19 @@
         <!-- END .notes -->
         <!-- BEGIN .date -->
         <div class="entry-date">
-          {{ entry.date|safe }} {{ entry.time|safe }} {{ entry.length|safe }}
+          {{ entry.date|safe }} 
         </div>
         <!-- END .date -->
-
+        <!-- BEGIN .entry-time -->
+        <div class="entry-time">
+          {{ entry.time|safe }}
+        </div>
+        <!-- END .entry-time -->
+        <!-- BEGIN .entry-length -->
+        <div class="entry-length">
+          {{ entry.length|safe }}
+        </div>
+        <!-- END .entry-length -->
       </li>
       {% else %}
       <li><em>Unbelievable.  No entries here so far</em>
