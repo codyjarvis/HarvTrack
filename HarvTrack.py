@@ -19,7 +19,7 @@ def init_db():
 
 def connect_db():
     """Connects to DB"""
-    return sqlite3.connect(app.config['DATABASE'])
+    return sqlite3.connect(app.config['DATABASE'], timeout=5)
 
 
 # open db connection
