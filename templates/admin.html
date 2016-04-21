@@ -21,6 +21,14 @@
 
       </dl>
     </form>
+<form action="{{ url_for('delete_user') }}" method=post class=delete_act>
+      <dl>
+      <!--    <dt>Remove Activity Entry (ID): </dt> -->
+        <dd><input placeholder="Remove User" type=text name=userid>
+        <input type=submit value=Submit>
+          </dd>
+      </dl>
+</form>
 
 <form action="{{ url_for('delete_acts') }}" method=post class=delete_act>
       <dl>
@@ -31,6 +39,7 @@
       </dl>
 </form>
 
+
 <ul class=entries>
   {% for entry in del_entries %}
     <li>{{ entry.id|safe }} {{ entry.activitydescription|safe }}</li>
@@ -39,7 +48,16 @@
   {% endfor %}
   </ul>
 
+<ul class=users>
+  {% for users in list_usr %}
+    <li>{{ users.id|safe }} {{ users.username|safe }}</li>
+  {% else %}
+    <li><em>No users listed.</em>
+  {% endfor %}
+  </ul>
+
   </div>
+
   <!-- END admin-container -->
 
 {% endblock %}

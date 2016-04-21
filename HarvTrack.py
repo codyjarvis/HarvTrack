@@ -94,7 +94,8 @@ def log_activity():
 @app.route("/admin")
 def admin_page():
     del_entries = get_entries_del()
-    return render_template('admin.html', del_entries=del_entries)
+    list_usr = get_users()
+    return render_template('admin.html', del_entries=del_entries, list_usr=list_usr)
 
 def get_entries_del():
     db = get_db()
@@ -102,6 +103,13 @@ def get_entries_del():
     entries = [dict(id=row[0], activitydescription=row[1]) for row
                in logged_entries.fetchall()]
     return entries
+
+def get_users():
+    db = get_db()
+    all_users = db.execute("select id, username from users order by id")
+    users = [dict(id=row[0], username=row[1]) for row
+             in all_users.fetchall()]
+    return users
 
 @app.route("/add_activity", methods=['POST'])
 # add to the activity table
@@ -138,7 +146,7 @@ def delete_acts():
     db = get_db()
     activityid = request.form.get('activityid', None)
     if activityid == "":
-        flash("Please input a username.")
+        flash("Please input an activity id.")
     else:
         db.execute("delete from activity where id = ?", [activityid])
         db.commit()
@@ -146,6 +154,19 @@ def delete_acts():
 
     return redirect(url_for('admin_page'))
 
+@app.route("/remove_user", methods=['POST'])
+# remove user
+def delete_user():
+    db = get_db()
+    userid = request.form.get('userid', None)
+    if userid == "":
+        flash("Please input a userid.")
+    else:
+        db.execute("delete from users where id = ?", [userid])
+        db.commit()
+        flash("Entry Removed")
+
+    return redirect(url_for('admin_page'))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0")
