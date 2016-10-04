@@ -1,3 +1,11 @@
+<<<<<<< HEAD
 adding this text
 
 add lower
+=======
+
+
+
+
+adding text lower
+>>>>>>> b0af453117d79db8baac8547db9052f8a2e2cfd3
